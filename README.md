@@ -43,5 +43,5 @@ These are some load charts:
 
 This is just some system info:
 
-![system info](https;//github.com/lrosa007/edi/raw/master/docs/screenshots/system-info.png "System Info")
+![system info](https://github.com/lrosa007/edi/raw/master/docs/screenshots/system-info.png "System Info")
 
