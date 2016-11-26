@@ -17,14 +17,12 @@ defmodule EDI.UserView do
 
   def render("user.json", %{user: user}) do
     %{email: user.email,
-      id: user.id,
-      username: user.username}
+      id: user.id}
   end
 
   def render("user_token.json", %{user: user, token: token}) do
     %{email: user.email,
       id: user.id,
-      token: token,
-      username: user.username}
+      token: token}
   end
 end

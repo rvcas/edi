@@ -14,10 +14,19 @@ use Mix.Config
 config :edi, EDI.Endpoint,
   http: [port: {:system, "PORT"}],
   url: [host: "example.com", port: 80],
-  cache_static_manifest: "priv/static/manifest.json"
+  cache_static_manifest: "priv/static/manifest.json",
+  secret_key_base: "Qiu6xuiBU0LWSPVUqrr1VNfGha0jca03ZDpnEDfUUdkO5uAim2ZZ2vkpcZq1O0sa"
 
 # Do not print debug messages in production
 config :logger, level: :info
+
+# Configure your database
+config :edi, EDI.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  username: "postgres",
+  password: "postgres",
+  database: "edi_prod",
+  pool_size: 20
 
 # ## SSL Support
 #
@@ -58,4 +67,3 @@ config :logger, level: :info
 
 # Finally import the config/prod.secret.exs
 # which should be versioned separately.
-import_config "prod.secret.exs"

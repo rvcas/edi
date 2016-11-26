@@ -1,7 +1,9 @@
 defmodule EDI.V1.UserController do
   use EDI.Web, :controller
 
-  alias EDI.{ User, ChangesetView, UserView }
+  alias EDI.{ AuthController, ChangesetView, User, UserView }
+
+  plug Guardian.Plug.EnsureAuthenticated, [handler: AuthController] when action in [:delete, :update]
 
   def create(conn, %{"data" => data}) do
     changeset = User.registration_changeset(%User{}, data)

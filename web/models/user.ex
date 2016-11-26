@@ -12,10 +12,11 @@ defmodule EDI.User do
 
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:name :email])
+    |> cast(params, [:name, :email])
     |> validate_required([:email])
     |> validate_length(:email, min: 1, max: 255)
     |> validate_format(:email, ~r/@/)
+    |> unique_constraint(:email)
   end
 
   def registration_changeset(struct, params) do

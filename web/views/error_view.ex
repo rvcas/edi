@@ -1,17 +1,13 @@
 defmodule EDI.ErrorView do
   use EDI.Web, :view
 
-  def render("404.json", _assigns) do
-    %{errors: %{detail: "Page not found"}}
-  end
+  def render("400.json", %{error: error}), do: err(%{detail: error, code: 400})
+  def render("401.json", _), do: err(%{detail: "Unauthorized", code: 401})
+  def render("403.json", _), do: err(%{detail: "Forbidden", code: 403})
+  def render("404.json", _), do: err(%{detail: "Page not found", code: 404})
+  def render("500.json", _), do: err(%{detail: "Internal server error", code: 500})
 
-  def render("500.json", _assigns) do
-    %{errors: %{detail: "Internal server error"}}
-  end
+  def template_not_found(_, assigns), do: render("500.json", assigns)
 
-  # In case no render clause matches or no
-  # template is found, let's render it as 500
-  def template_not_found(_template, assigns) do
-    render "500.json", assigns
-  end
+  defp err(errors), do: %{errors: errors}
 end

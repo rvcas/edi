@@ -36,5 +36,7 @@ defmodule EDI.Endpoint do
     key: "_edi_key",
     signing_salt: "s3Z7GfAn"
 
+  plug CORSPlug
+
   plug EDI.Router
 end
