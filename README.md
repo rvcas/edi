@@ -18,7 +18,7 @@ and phoenix provides some test helpers. Similar to rspec, the `tests` folder nor
 mimics the directory structure of your app and contains files of the same name with `_test.exs`
 appended to the end: `file_name_test.exs`.
 
-*Note: `.exs` vs. `.ex` (left is usually for scripting)
+*Note: `.exs` vs. `.ex` (left is usually for scripting)*
 
 I have added some things to make testing a little cooler:
 
