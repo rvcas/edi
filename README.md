@@ -31,7 +31,9 @@ I have added some things to make testing a little cooler:
     
 ## BEAM
 To much to explain in a little readme to I took some screenshots
-of the observer app that ships with erlang.
+of the observer app that ships with erlang. This app looks much
+pretty on OSX but I was running linux at the time of the screenshot
+so the interface is only ok.
 
 This is the application tree:
 
