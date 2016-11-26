@@ -1,7 +1,7 @@
 defmodule EDI.V1.UserController do
   use EDI.Web, :controller
 
-  alias EDI.{ AuthController, ChangesetView, User, UserView }
+  alias EDI.{AuthController, ChangesetView, User, UserView}
 
   plug Guardian.Plug.EnsureAuthenticated, [handler: AuthController] when action in [:delete, :update]
 
