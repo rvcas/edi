@@ -34,7 +34,7 @@ config :edi, EDI.Repo,
   pool_size: 10
 
 config :edi,
-  directories: %{main:  Path.join("~", "files") |> Path.expand,
+  directories: %{main:  File.cwd! |> Path.join("files"),
                  prefix: "edi",
                  order: "pedidos",
                  confirmation: "respostas",
