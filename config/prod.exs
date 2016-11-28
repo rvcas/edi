@@ -28,6 +28,13 @@ config :edi, EDI.Repo,
   database: "edi_prod",
   pool_size: 20
 
+config :edi,
+  directories: %{main: "/home/httpd/html/webol/",
+                 prefix: "edi/",
+                 order: "pedidos/",
+                 confirmation: "respostas",
+                 invoice: "notas/"}
+
 # ## SSL Support
 #
 # To get SSL working, you will need to add the `https` key

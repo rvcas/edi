@@ -32,3 +32,10 @@ config :edi, EDI.Repo,
   database: "edi_dev",
   hostname: "localhost",
   pool_size: 10
+
+config :edi,
+  directories: %{main:  Path.join("~", "files") |> Path.expand,
+                 prefix: "edi",
+                 order: "pedidos",
+                 confirmation: "respostas",
+                 invoice: "notas"}
