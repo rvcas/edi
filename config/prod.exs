@@ -29,11 +29,11 @@ config :edi, EDI.Repo,
   pool_size: 20
 
 config :edi,
-  directories: %{main: "/home/httpd/html/webol/",
-                 prefix: "edi/",
-                 order: "pedidos/",
+  directories: %{main: "/home/httpd/html/webol",
+                 prefix: "edi",
+                 order: "pedidos",
                  confirmation: "respostas",
-                 invoice: "notas/"}
+                 invoice: "notas"}
 
 # ## SSL Support
 #
