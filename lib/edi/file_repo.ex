@@ -23,11 +23,8 @@ defmodule EDI.FileRepo do
   defp do_insert(order, details) do
     {order, details}
     |> make_file
-    |> open_file
-    |> write_file
+    |> put_data
     |> close_file
-
-    {:ok, order}
   end
 
   defp make_file({order, detail}) do
@@ -38,7 +35,21 @@ defmodule EDI.FileRepo do
 
     File.touch! full_path
 
-    {full_path, order, detail}
+    file = File.open! full_path, [:write]
+
+    {file, order, detail}
+  end
+
+  defp put_data({file, order, detail}) do
+
+
+    {file, order}
+  end
+
+  defp close_file({file, order}) do
+    File.close file
+
+    {:ok, order}
   end
 
   defp file_name(id, wholesaler_code, project_code) do
