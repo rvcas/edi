@@ -41,7 +41,15 @@ defmodule EDI.FileRepo do
   end
 
   defp put_data({file, order, detail}) do
+    items = Map.to_list order.items
 
+    content =
+      detail.id
+      |> register(order, :one)
+      |> register(items, :two)
+      |> register(items, :three)
+
+    IO.binwrite file, content
 
     {file, order}
   end
@@ -65,5 +73,28 @@ defmodule EDI.FileRepo do
 
   defp pad_zero(str) do
     String.pad_leading(str, 14, "0")
+  end
+
+  defp register(id, order, :one) do
+    data_list = [1, order.pos_code, order.email, order.wholesaler_code,
+                 order.term, order.condition_code, order.order_client,
+                 id, order.markup]
+
+    Enum.join(data_list, ";") <> "\r\n"
+  end
+
+  defp register(content, [], :two), do: content
+  defp register(content, [{_, data } | tail], :two) do
+    data_list = [2, data.ean, data.amount, data.discount, data.net_price]
+
+    new_content = content <> Enum.join(data_list, ";") <> "\r\n"
+
+    register(new_content, tail, :two)
+  end
+
+  defp register(content, items, :three) do
+    data_list = [9, Enum.count(items)]
+
+    content <> Enum.join(data_list, ";") <> "\r\n"
   end
 end
