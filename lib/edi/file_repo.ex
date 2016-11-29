@@ -27,24 +27,24 @@ defmodule EDI.FileRepo do
     |> close_file
   end
 
-  defp make_file({order, detail}) do
+  defp make_file({order, details}) do
     full_path =
-      detail.id
+      details["id"]
       |> file_name(order.wholesaler_code, order.project_code)
-      |> file_path(detail.wholesaler, detail.industry)
+      |> file_path(details["wholesaler"], details["industry"])
 
     File.touch! full_path
 
     file = File.open! full_path, [:write]
 
-    {file, order, detail}
+    {file, order, details["id"]}
   end
 
-  defp put_data({file, order, detail}) do
+  defp put_data({file, order, id}) do
     items = Map.to_list order.items
 
     content =
-      detail.id
+      id
       |> register(order, :one)
       |> register(items, :two)
       |> register(items, :three)
@@ -84,8 +84,8 @@ defmodule EDI.FileRepo do
   end
 
   defp register(content, [], :two), do: content
-  defp register(content, [{_, data } | tail], :two) do
-    data_list = [2, data.ean, data.amount, data.discount, data.net_price]
+  defp register(content, [{_, item } | tail], :two) do
+    data_list = [2, item["ean"], item["amount"], item["discount"], item["net_price"]]
 
     new_content = content <> Enum.join(data_list, ";") <> "\r\n"
 
