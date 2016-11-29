@@ -13,7 +13,7 @@ defmodule EDI.V1.OrderController do
         conn
         |> put_status(:created)
         |> render(OrderView, "show.json", order: order)
-      {:error, "missing info" = msg} ->
+      {:error, msg} when is_binary(msg) ->
         conn
         |> put_status(:unprocessable_entity)
         |> json(%{error: msg})
