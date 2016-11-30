@@ -1,6 +1,7 @@
 Bureaucrat.start(
   paths: [
-    {EDI.V1, "docs/v1/README.md"}
+    {EDI, "docs/api/README.md"},
+    {EDI.V1, "docs/api/v1/README.md"}
   ]
 )
 
