@@ -3,10 +3,10 @@
 * [EDI.AuthController](#ediauthcontroller)
   * [create](#ediauthcontrollercreate)
   * [show](#ediauthcontrollershow)
-* [EDI.V1.UserController](#ediv1usercontroller)
-  * [create](#ediv1usercontrollercreate)
-  * [delete](#ediv1usercontrollerdelete)
-  * [update](#ediv1usercontrollerupdate)
+* [EDI.V1.UserController](https://github.com/lrosa007/edi/tree/master/docs/api/v1#ediv1usercontroller)
+  * [create](https://github.com/lrosa007/edi/tree/master/docs/api/v1#ediv1usercontrollercreate)
+  * [delete](https://github.com/lrosa007/edi/tree/master/docs/api/v1#ediv1usercontrollerdelete)
+  * [update](https://github.com/lrosa007/edi/tree/master/docs/api/v1#ediv1usercontrollerupdate)
 
 ## EDI.AuthController
 ### EDI.AuthController.create
@@ -80,111 +80,3 @@ access-control-allow-credentials: true
   }
 }
 ```
-
-## EDI.V1.UserController
-### EDI.V1.UserController.create
-#### POST /v1/users valid data
-##### Request
-* __Method:__ POST
-* __Path:__ /v1/users
-* __Request headers:__
-```
-accept: application/json
-content-type: multipart/mixed; charset: utf-8
-```
-* __Request body:__
-```json
-{
-  "data": {
-    "password": "secret",
-    "email": "winfield_johnson@armstrong.info"
-  }
-}
-```
-##### Response
-* __Status__: 201
-* __Response headers:__
-```
-content-type: application/json; charset=utf-8
-cache-control: max-age=0, private, must-revalidate
-x-request-id: vaiatnuk8ih68588fjccvelqq2dr5lqb
-access-control-allow-origin: *
-access-control-expose-headers: 
-access-control-allow-credentials: true
-```
-* __Response body:__
-```json
-{
-  "data": {
-    "token": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJVc2VyOjE2MTAiLCJleHAiOjE0ODA3NTE4NDQsImlhdCI6MTQ4MDQ5MjY0NCwiaXNzIjoiU2hlcGhlcmQiLCJqdGkiOiI4YTdkODEzYS03M2U1LTQyMzctOTk4Yy0wY2JmM2ExNjZkNDUiLCJwZW0iOnt9LCJzdWIiOiJVc2VyOjE2MTAiLCJ0eXAiOiJ0b2tlbiJ9.zFC2g9Kmt8_aD__8G5_y5S2eNBz83oTBdUU_9IJKBjv8tPZoIB53R0yv4OXMkQrCY7yNmo3Dohbx2UExbxkKUw",
-    "id": 1610,
-    "email": "winfield_johnson@armstrong.info"
-  }
-}
-```
-
-### EDI.V1.UserController.delete
-#### DELETE /v1/users/:id with token
-##### Request
-* __Method:__ DELETE
-* __Path:__ /v1/users/1604
-* __Request headers:__
-```
-accept: application/json
-authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJVc2VyOjE2MDQiLCJleHAiOjE0ODA3NTE4NDIsImlhdCI6MTQ4MDQ5MjY0MiwiaXNzIjoiU2hlcGhlcmQiLCJqdGkiOiJjN2Y2OGQ0OC04ODIwLTRjM2EtOTI5Mi00OWM2ZjkxN2ExNjMiLCJwZW0iOnt9LCJzdWIiOiJVc2VyOjE2MDQiLCJ0eXAiOiJ0b2tlbiJ9.6DeVVro4_NuhLM5_u3yKgNxj2CnYw8Pfygn02sUUB2joh1jxxQxqiB7qw6i-1B-YiO2YHLhueuLjt3cMFDj53w
-```
-##### Response
-* __Status__: 204
-* __Response headers:__
-```
-cache-control: max-age=0, private, must-revalidate
-x-request-id: jvocm6joekrpnlb3si3is4s1diu62l2e
-access-control-allow-origin: *
-access-control-expose-headers: 
-access-control-allow-credentials: true
-```
-* __Response body:__
-```json
-
-```
-
-### EDI.V1.UserController.update
-#### PUT /v1/users/:id valid data and token
-##### Request
-* __Method:__ PUT
-* __Path:__ /v1/users/1607
-* __Request headers:__
-```
-accept: application/json
-authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJVc2VyOjE2MDciLCJleHAiOjE0ODA3NTE4NDMsImlhdCI6MTQ4MDQ5MjY0MywiaXNzIjoiU2hlcGhlcmQiLCJqdGkiOiJhNjczMTMxZi00MzBlLTRhYmItYmJkOC1lYzYxMGI1NDFhMjUiLCJwZW0iOnt9LCJzdWIiOiJVc2VyOjE2MDciLCJ0eXAiOiJ0b2tlbiJ9.fYTGVoLPPQvsUWPj6rVfjFU-K5a5E8T69zknJF3c6OrHmum1WQn-Qfpv4bn-KXyUv2fOeha-8nHyFRer2sPH3Q
-content-type: multipart/mixed; charset: utf-8
-```
-* __Request body:__
-```json
-{
-  "data": {
-    "email": "alysha2018@willms.org"
-  }
-}
-```
-##### Response
-* __Status__: 200
-* __Response headers:__
-```
-content-type: application/json; charset=utf-8
-cache-control: max-age=0, private, must-revalidate
-x-request-id: irg2v6fslnlpovipfreutbo7k735papa
-access-control-allow-origin: *
-access-control-expose-headers: 
-access-control-allow-credentials: true
-```
-* __Response body:__
-```json
-{
-  "data": {
-    "id": 1607,
-    "email": "alysha2018@willms.org"
-  }
-}
-```
-
