@@ -29,11 +29,11 @@ defmodule EDI.V1.UserController do
 
     case Repo.update(changeset) do
       {:ok, user} ->
-        render conn, "show.json", user: user
+        render conn, UserView, "show.json", user: user
       {:error, changeset} ->
         conn
         |> put_status(:unprocessable_entity)
-        |> render(Shepherd.ChangesetView, "error.json", changeset: changeset)
+        |> render(ChangesetView, "error.json", changeset: changeset)
     end
   end
 

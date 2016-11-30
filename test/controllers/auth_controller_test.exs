@@ -1,9 +1,9 @@
 defmodule EDI.AuthControllerTest do
   use EDI.ConnCase
 
-  setup do
+  setup %{conn: conn} do
     {:ok,
-     conn: put_req_header(build_conn, "accept", "application/json"),
+     conn: put_req_header(conn, "accept", "application/json"),
      user: insert(:user)}
   end
 

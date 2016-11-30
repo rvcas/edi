@@ -8,7 +8,7 @@ defmodule EDI.FileRepo do
       true ->
         if missing_details?(details),
           do: {:error, "missing info"},
-          else: apply_changes(changeset) |> do_insert(details)
+          else: changeset |> apply_changes |> do_insert(details)
       _ -> {:error, changeset}
     end
   end
@@ -84,7 +84,7 @@ defmodule EDI.FileRepo do
   end
 
   defp register(content, [], :two), do: content
-  defp register(content, [{_, item } | tail], :two) do
+  defp register(content, [{_, item} | tail], :two) do
     data_list = [2, item["ean"], item["amount"], item["discount"], item["net_price"]]
 
     new_content = content <> Enum.join(data_list, ";") <> "\r\n"
