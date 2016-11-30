@@ -33,8 +33,7 @@ defmodule EDI.AuthController do
     conn
     |> Guardian.Plug.current_token
     |> Guardian.revoke!
-
-    send_resp(conn, :no_content, "")
+    |> send_resp(:no_content, "")
   end
 
   def unauthenticated(conn, _) do

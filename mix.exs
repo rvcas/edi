@@ -19,7 +19,7 @@ defmodule EDI.Mixfile do
   def application do
     [mod: {EDI, []},
      applications: [:phoenix, :phoenix_pubsub, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex]]
+                    :phoenix_ecto, :postgrex, :cors_plug, :comeonin, :faker, :ex_machina]]
   end
 
   # Specifies which paths to compile per environment.

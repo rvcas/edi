@@ -18,6 +18,7 @@ config :edi, EDI.Endpoint,
 config :logger, :console, format: "[$level] $message\n"
 
 config :mix_test_watch,
+  clear: true,
   tasks: ["test",
           "credo"]
 # Set a higher stacktrace during development. Avoid configuring such
